@@ -79,12 +79,21 @@ form label{
    
 }
 .loginGoogle{
-    background: rgba(255, 255, 255, 0.59);
+    background: rgba(255, 255, 255, 0.74);
     font-family: 'Reem Kufi', sans-serif;
+    width: 377px;
+    height: 178px;
+    border-radius: 10px;
+    margin-top: 66px;
+    margin-left: 23px;
+    text-align: center;
+    padding-top: 21px;
+    box-sizing: border-box;
+
 }
 .loginGoogle button img{
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
 
 }
 .loginGoogle button{
@@ -92,10 +101,15 @@ form label{
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    border-radius: 30px;
    width: 335px;
-   height: 57px;
+   height: 45px;
    font-family: 'Reem Kufi', sans-serif;
+   font-size: 20px;
+   text-align:center;
+   margin-bottom: 20px;
 }
-
+.Plantilla2login{
+  margin-top: 10px;
+}
 
      
 
