@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>SOCIAL NETWOTK</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="incon" href="IMG/Icongoogle1.ico"> -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
 </head>
+
 <body>
-  <script type="module" src="main.js"></script>
+  <header></header>
+  <main>
+
+    <h1>Animalandia</h1>
+    <div class="container1">
+
+      <!-- <section class="formularioLogin" id="formularioLogin"> -->
+       <form>
+        <h2>Incia sesión para ver fotos y videos</h2>
+          <label for = "email" > Ingresa tu email </label> <input  type="email" id="email" required /> 
+          <label for = "password" > Ingresa tu contraseña </label><input type="password" id="contraseña"  maxlength="16" required/>
+          <button>Inicia sesión</button>
+       </form>
+     <!-- </section> -->
+
+      <div class="loginGoogle">
+        <button><img src="IMG/icongoogle.png"> sesión con google</button>
+        <a><br>¿Olvidaste tu contraseña?</a> </br>
+        <p><br>¿No tienes una cuenta?</p> </br>
+        <link href = "Registrate" ></link>
+
+
+      </div>
+    </div>
+  </main>
+
+  <div id="root"></div>
+
 </body>
+
+<footer></footer>
+
+<script type="module" src="main.js"></script>
+
 </html>
