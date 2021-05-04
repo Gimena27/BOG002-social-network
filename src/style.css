@@ -16,10 +16,8 @@ main h1 {
 body{
     margin-top:81px;
     background: url(../src/IMG/fondoLogin1.jpg);
- /* background-size: cover; */
- /* background-attachment: fixed; */
 } 
-.container1{
+.containerUno{
     display:flex;
     background: rgba(255, 255, 255, 0.74);
     border-radius: 10px;
@@ -30,11 +28,11 @@ body{
 }
      
 form h2{
-    font-family: 'Reem Kufi', sans-serif;
-    font-size:medium;  
+    font-family: 'Reem Kufi', sans-serif; 
     text-align: center; 
-    padding-top: 22px; 
+    padding-top: 30px; 
     color: #000000;
+    font-size: 24px;
 }
  
 form input{
@@ -72,7 +70,13 @@ form label{
     font-family: 'Reem Kufi', sans-serif;
     font-size:medium;
     margin:36px;
-   
+}
+
+form p{
+    font-family: Reem Kufi;
+    font-size: 14px;
+    text-align: center;
+    margin:36px;
 }
 .loginGoogle{
     background: rgba(255, 255, 255, 0.74);
@@ -104,11 +108,65 @@ form label{
    margin-bottom: 20px;
    border: transparent;
 }
-.Plantilla2login{
-    margin-top: 10px;
+
+.containerDos{
+    display:flex;
+    background: rgba(255, 255, 255, 0.74);
+    border-radius: 10px;
+    width: 380px;
+    height: 500px;
+    margin-left: 19px;
+    margin-top: 57px;
+}    
+
+.loginGoogleDos{
+    background: rgba(255, 255, 255, 0.74);
+    font-family: 'Reem Kufi', sans-serif;
+    width: 377px;
+    height: 146px;
+    border-radius: 10px;
+    margin-top: 23px;
+    margin-left: 23px;
+    text-align: center;
+    padding-top: 21px;
+    box-sizing: border-box;
+} 
+.loginGoogleDos button img{
+    width: 25px;
+    height: 25px;
+    float:left;
+    margin-left: 45px;
 }
+.loginGoogleDos button{
+   background: rgba(232, 181, 49, 0.88);
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 30px;
+   width: 335px;
+   height: 45px;
+   font-family: 'Reem Kufi', sans-serif;
+   font-size: 20px;
+   margin-bottom: 20px;
+   border: transparent;
+} 
 
-     
-
- 
- 
+@media (min-width:500px){
+    body{
+    background-repeat: no-repeat;
+    }
+   .container1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+   } 
+   .loginGoogle{
+    width: 286px;
+    height: 150px;
+   }
+ main h1{
+    width:80%;
+    height:100%;
+    left:-100%;
+    margin:0;
+    position: fixed;
+ }   
+  }
