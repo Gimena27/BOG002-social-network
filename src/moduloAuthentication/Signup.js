@@ -1,4 +1,6 @@
- import{registerUser} from '../lib/index.js' 
+ import{registerUser,loginGoogle} from '../lib/index.js';
+ import{loginDiv,loginDos}from '../moduloAuthentication/login.js';
+
  export const registro=()=>{
     let select = document.querySelector("main");
     select.innerHTML="";
@@ -89,8 +91,35 @@ export const registroDos =()=>{
 
     divRegistroDos.className="loginGoogleDos";
     volverInicioSesion.id="linkInicio";
+    btnGoogle.id="btnGoogle";
 
-   /* let inicioLogin= document.getElementById("linkInicio");
+   let inicioLogin= document.getElementById("linkInicio");
     inicioLogin.addEventListener("click", loginDiv);
-    inicioLogin.addEventListener("click", loginDos);*/
+    inicioLogin.addEventListener("click", loginDos);
+    
+    const googleInicioSesion= document.getElementById("btnGoogle");
+    googleInicioSesion.addEventListener("click",(event)=>{
+        console.log("click");
+        event.preventDefault();
+        loginGoogle()
+        .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+        
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            // ...
+          }).catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+          });
+    });
 }

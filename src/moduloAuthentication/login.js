@@ -1,4 +1,5 @@
 import {login,loginGoogle} from '../lib/index.js';
+import {registro,registroDos} from '../moduloAuthentication/Signup.js';
 export const loginDiv=()=>{
     let select = document.querySelector("main");
     select.innerHTML="";
@@ -83,6 +84,10 @@ export const loginDos =()=>{
     registrate.id="linkRegistro";
     btnGoogle.id="btnGoogle";
     
+    let registrateClick = document.getElementById("linkRegistro");
+    registrateClick.addEventListener("click",registro);
+    registrateClick.addEventListener("click",registroDos);
+
     const googleInicioSesion= document.getElementById("btnGoogle");
     googleInicioSesion.addEventListener("click",(event)=>{
         console.log("click");
