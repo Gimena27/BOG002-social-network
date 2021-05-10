@@ -1,5 +1,7 @@
 import {login,loginGoogle} from '../lib/index.js';
-import {registro,registroDos} from '../moduloAuthentication/Signup.js';
+import {registro} from '../moduloAuthentication/Signup.js';
+import {contraseña} from '../moduloHome/contraseña.js';
+// import {router} from '../moduloRouter/ruteo.js';
 export const loginDiv=()=>{
     let select = document.querySelector("main");
     select.innerHTML="";
@@ -46,18 +48,20 @@ export const loginDiv=()=>{
         const emailLogin= document.getElementById("emailLogin").value;
         const contraseñaLogin= document.getElementById("contraseñaLogin").value;
     
+        console.log (emailLogin ,contraseñaLogin);
+
         event.preventDefault();
         login(emailLogin,contraseñaLogin)
         .then((userCredential) => {
+          window.location = '#/login';
             console.log(userCredential.user) ;
           })
           .catch((error) => {
             console.log ('error', error );
           });
+          
     });
-}
-export const loginDos =()=>{
-    let select = document.querySelector("main");
+
     let divLoginDos=document.createElement("div");
     let btnGoogle=document.createElement("button");
     let imgGoogle=document.createElement("img");
@@ -66,7 +70,7 @@ export const loginDos =()=>{
     let registrate= document.createElement("a");
 
     btnGoogle.textContent= "Inicia sesión con google";
-    imgGoogle.src="../src/IMG/icongoogle.png";
+    imgGoogle.src="IMG/icongoogle.png";
     olvidarContraseña.textContent="¿Olvidaste tu contraseña?";
     registrateTitulo.textContent="¿No tienes una cuenta?";
     registrate.textContent="Registrate";
@@ -83,11 +87,17 @@ export const loginDos =()=>{
     divLoginDos.className="loginGoogle";
     registrate.id="linkRegistro";
     btnGoogle.id="btnGoogle";
+    olvidarContraseña.id ="recuperarContraseña";
     
     let registrateClick = document.getElementById("linkRegistro");
     registrateClick.addEventListener("click",registro);
-    registrateClick.addEventListener("click",registroDos);
 
+    let establecerContraseña = document.getElementById("recuperarContraseña");
+    establecerContraseña.addEventListener("click", contraseña);
+
+    // let registrateClick = document.getElementById("linkRegistro");
+    // registrateClick.addEventListener("click",contraseña);
+   
     const googleInicioSesion= document.getElementById("btnGoogle");
     googleInicioSesion.addEventListener("click",(event)=>{
         console.log("click");
@@ -113,4 +123,8 @@ export const loginDos =()=>{
             // ...
           });
     });
+    
+    // window.location = '#/login';
 }
+
+  

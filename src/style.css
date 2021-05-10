@@ -15,7 +15,7 @@ main h1 {
 }
 body{
     margin-top:81px;
-    background: url(../src/IMG/fondoLogin1.jpg);
+    background: url(IMG/fondoLogin1.jpg);
 } 
 .containerUno{
     display:flex;
@@ -170,3 +170,4 @@ form p{
     position: fixed;
  }   
   }
+

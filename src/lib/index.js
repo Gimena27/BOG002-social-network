@@ -17,4 +17,7 @@ export const registerUser = (email ,password ) =>{
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   return firebase.auth()
   .signInWithPopup(provider);
- };
+
+
+ 
+};

@@ -1,14 +1,14 @@
- import{registerUser,loginGoogle} from '../lib/index.js';
- import{loginDiv,loginDos}from '../moduloAuthentication/login.js';
+import{registerUser,loginGoogle} from '../lib/index.js';
+import{loginDiv}from '../moduloAuthentication/login.js';
 
- export const registro=()=>{
-    let select = document.querySelector("main");
-    select.innerHTML="";
-    let divRegistro= document.createElement("div");
-    let formRegistro= document.createElement("form");
-    let titulo= document.createElement("h1");
-    let textoInicioRegistro= document.createElement("h2");
-    let labelEmail= document.createElement("label");
+export const registro=()=>{
+  let select = document.querySelector("main");
+  select.innerHTML="";
+  let divRegistro= document.createElement("div");
+  let formRegistro= document.createElement("form");
+  let titulo= document.createElement("h1");
+  let textoInicioRegistro= document.createElement("h2");
+  let labelEmail= document.createElement("label");
     let inputEmail= document.createElement("input");
     let labelNombre= document.createElement("label");
     let inputNombre= document.createElement("input");
@@ -57,6 +57,8 @@
         const registrarEmail= document.getElementById("inputEmail").value;
         const registrarContraseña= document.getElementById("inputContraseña").value;
         const registrarNombre= document.getElementById("inputNombre");
+
+        console.log( registrarEmail, registrarContraseña);
     
         event.preventDefault();
         registerUser(registrarEmail,registrarContraseña,registrarNombre)
@@ -67,10 +69,9 @@
               console.log ('error', error );
             });
     })
-} 
+    // window.location.hash = 'signUp';
 
-export const registroDos =()=>{
-    let select = document.querySelector("main");
+
     let divRegistroDos=document.createElement("div");
     let btnGoogle=document.createElement("button");
     let imgGoogle=document.createElement("img");
@@ -78,7 +79,7 @@ export const registroDos =()=>{
     let volverInicioSesion= document.createElement("a");
 
     btnGoogle.textContent= "Inicia sesión con google";
-    imgGoogle.src="../src/IMG/icongoogle.png";
+    imgGoogle.src="IMG/icongoogle.png";
     tienesCuentaTitulo.textContent="¿Tienes una cuenta?";
     volverInicioSesion.textContent="Inicia sesión";
 
@@ -95,7 +96,7 @@ export const registroDos =()=>{
 
    let inicioLogin= document.getElementById("linkInicio");
     inicioLogin.addEventListener("click", loginDiv);
-    inicioLogin.addEventListener("click", loginDos);
+    
     
     const googleInicioSesion= document.getElementById("btnGoogle");
     googleInicioSesion.addEventListener("click",(event)=>{
@@ -122,4 +123,5 @@ export const registroDos =()=>{
             // ...
           });
     });
-}
+} 
+

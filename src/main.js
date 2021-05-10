@@ -1,5 +1,7 @@
 
-import {loginDiv,loginDos} from './moduloAuthentication/login.js';
+
+import { contraseña } from './moduloHome/contraseña.js';
+import { router} from './moduloRouter/ruteo.js';
 //import { registro, registroDos } from './moduloAuthentication/Signup.js';
 
 const init=()=>{
@@ -13,10 +15,23 @@ const init=()=>{
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      
-    loginDiv();
-    loginDos();
-    /*registro();
-    registroDos();*/
+    
+    router(window.location.hash);
+    
+
+    
+ window.addEventListener('haschange',() => {
+  router(window.location.hash);
+ }); 
+ router(window.location.hash);
+
+ window.addEventListener('hashchange', () => {
+  router(window.location.hash);
+}); 
+  
+
+
 }
+    
+
 init();
