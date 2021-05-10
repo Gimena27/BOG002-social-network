@@ -44,7 +44,7 @@ export const contraseña=()=>{
     select.appendChild(divContraseña).appendChild(formContraseña).appendChild(btnEnviarEnlace);
     select.appendChild(divContraseña).appendChild(formContraseña).appendChild(textVolverInicio);
 
-    divContraseña.className = "containerUno";
+    divContraseña.className = "containerDos";
     inputEmail.id="emailLogin";
     btnEnviarEnlace.id = "btnEnviarEnlace"
     textVolverInicio.id = "VolverInicio";
@@ -62,5 +62,5 @@ export const contraseña=()=>{
         event.preventDefault();
         return emailLogin ;
     })
-
+    window.location.hash = '#/contraseña';
 }

@@ -1,41 +1,29 @@
-import {loginDiv} from '../moduloAuthentication/login.js';
-import {registro} from '../moduloAuthentication/signUp.js';
+import { loginDiv } from '../moduloAuthentication/login.js';
+import { registro } from '../moduloAuthentication/signUp.js';
+import { contraseña } from '../moduloHome/contraseña.js'
 
 export const router = (route) => {
     let content = document.getElementById('root');
     content.innerHTML = "";
-    switch(route) {
+    switch (route) {
         case '#/login':
             content.innerHTML = loginDiv();
-           
+
             break;
-            case '':
-                content.innerHTML = loginDiv();
-              
-                break;
+        case '':
+            content.innerHTML = loginDiv();
+
+            break;
         case '#/signUp':
-             content.innerHTML = registro();
-           
-             break;
+            content.innerHTML = registro();
+
+            break;
+        case '#/password':
+            content.innerHTML = contraseña();
         default:
-             console.log('404!!!')
+            console.log('404!!!')
+
     }
 }
 
-// export const locationHashChangedeve= () => {
-//     if (location.hash === '#/login') {
-//       loginDiv();
-//     }else if (location.hash === '#/signUp'){
-//      registro();
-//     }
-//   }
-  
-  
-// window.addEventListener("DOMContentLoaded", () => {
-//     router(window.location.hash)
-//     });
-    
-//     window.addEventListener("haschange", () => {
-//       router(window.location.hash)
-//     })
-    
+

@@ -69,7 +69,7 @@ export const registro=()=>{
               console.log ('error', error );
             });
     })
-    // window.location.hash = 'signUp';
+   
 
 
     let divRegistroDos=document.createElement("div");

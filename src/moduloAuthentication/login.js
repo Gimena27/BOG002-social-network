@@ -1,7 +1,5 @@
 import {login,loginGoogle} from '../lib/index.js';
-import {registro} from '../moduloAuthentication/Signup.js';
-import {contraseña} from '../moduloHome/contraseña.js';
-// import {router} from '../moduloRouter/ruteo.js';
+
 export const loginDiv=()=>{
     let select = document.querySelector("main");
     select.innerHTML="";
@@ -75,8 +73,8 @@ export const loginDiv=()=>{
     registrateTitulo.textContent="¿No tienes una cuenta?";
     registrate.textContent="Registrate";
 
-    olvidarContraseña.href="#";
-    registrate.href="#";
+    olvidarContraseña.href="#/password";
+    registrate.href="#/signUp";
 
     select.appendChild(divLoginDos).appendChild(btnGoogle);
     select.appendChild(divLoginDos).appendChild(btnGoogle).appendChild(imgGoogle);
@@ -88,15 +86,7 @@ export const loginDiv=()=>{
     registrate.id="linkRegistro";
     btnGoogle.id="btnGoogle";
     olvidarContraseña.id ="recuperarContraseña";
-    
-    let registrateClick = document.getElementById("linkRegistro");
-    registrateClick.addEventListener("click",registro);
-
-    let establecerContraseña = document.getElementById("recuperarContraseña");
-    establecerContraseña.addEventListener("click", contraseña);
-
-    // let registrateClick = document.getElementById("linkRegistro");
-    // registrateClick.addEventListener("click",contraseña);
+   
    
     const googleInicioSesion= document.getElementById("btnGoogle");
     googleInicioSesion.addEventListener("click",(event)=>{
@@ -124,7 +114,7 @@ export const loginDiv=()=>{
           });
     });
     
-    // window.location = '#/login';
+    // window.location.hash = '#/login';
 }
 
   
