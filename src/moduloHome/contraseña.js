@@ -1,5 +1,5 @@
 
-import{loginDiv}from '../moduloAuthentication/login.js';
+import{restorePassword}from '../lib/index.js';
 
 
 export const contraseña=()=>{
@@ -24,16 +24,10 @@ export const contraseña=()=>{
     btnEnviarEnlace.textContent= "Enviar enlace de inicio de sesión";
     textVolverInicio.textContent = "Volver al inicio de sesión"
     
-
     inputEmail.type="email";
     inputEmail.required="required";
     btnEnviarEnlace.type="submit";
-
-
     textVolverInicio.href = "#";
-
-
-    
 
     select.appendChild(titulo);
     select.appendChild(divContraseña).appendChild(formContraseña);
@@ -49,18 +43,21 @@ export const contraseña=()=>{
     btnEnviarEnlace.id = "btnEnviarEnlace"
     textVolverInicio.id = "VolverInicio";
    
-
-
-    let volverLogin= document.getElementById("volverInicio");
-    volverLogin.addEventListener("click", loginDiv);
-
-
     const formRestaurarContraseña= document.getElementById("btnEnviarEnlace");
     formRestaurarContraseña.addEventListener("click",(event)=>{
         console.log("click");
         const emailLogin= document.getElementById("emailLogin").value;
         event.preventDefault();
-        return emailLogin ;
+        //auth.sendPasswordResetEmail(emailAddress);
+        restorePassword()
+        .then( (inputEmail) => {
+                console.log("se envio correo");
+            }).catch(function (error) {
+                console.log("existe un error");
+            });
+
+        //return emailLogin ;
     })
+    
     window.location.hash = '#/contraseña';
 }

@@ -1,9 +1,9 @@
 import { loginDiv } from '../moduloAuthentication/login.js';
-import { registro } from '../moduloAuthentication/signUp.js';
-import { contraseña } from '../moduloHome/contraseña.js'
+import { registro } from '../moduloAuthentication/Signup.js';
+import { contraseña } from '../moduloHome/contraseña.js';
 
 export const router = (route) => {
-    let content = document.getElementById('root');
+    let content = document.getElementById("root");
     content.innerHTML = "";
     switch (route) {
         case '#/login':
@@ -20,8 +20,11 @@ export const router = (route) => {
             break;
         case '#/password':
             content.innerHTML = contraseña();
+
+            break;
+            
         default:
-            console.log('404!!!')
+            console.log('404!!!');
 
     }
 }

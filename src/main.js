@@ -1,8 +1,4 @@
-
-
-
 import { router } from './moduloRouter/ruteo.js';
-//import { registro, registroDos } from './moduloAuthentication/Signup.js';
 
 const init = () => {
   var firebaseConfig = {
@@ -15,19 +11,9 @@ const init = () => {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
-
-
-
-
   window.addEventListener('hashchange', () => {
     router(window.location.hash);
   });
   router(window.location.hash);
-
-
-
 }
-
-
 init();

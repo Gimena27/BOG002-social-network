@@ -18,6 +18,11 @@ export const registerUser = (email ,password ) =>{
   return firebase.auth()
   .signInWithPopup(provider);
 
+};
 
- 
+export const restorePassword = () => {
+  var auth = firebase.auth();
+  var emailAddress = "giplo1995@hotmail.com";
+
+  return auth.sendPasswordResetEmail(emailAddress);
 };

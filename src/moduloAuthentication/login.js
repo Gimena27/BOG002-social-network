@@ -114,7 +114,7 @@ export const loginDiv=()=>{
           });
     });
     
-    // window.location.hash = '#/login';
+     window.location.hash = '#/login';
 }
 
   

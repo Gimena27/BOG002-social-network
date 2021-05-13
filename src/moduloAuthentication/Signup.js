@@ -79,7 +79,7 @@ export const registro=()=>{
     let volverInicioSesion= document.createElement("a");
 
     btnGoogle.textContent= "Inicia sesión con google";
-    imgGoogle.src="IMG/icongoogle.png";
+    imgGoogle.src="../src/IMG/icongoogle.png";
     tienesCuentaTitulo.textContent="¿Tienes una cuenta?";
     volverInicioSesion.textContent="Inicia sesión";
 
@@ -94,8 +94,8 @@ export const registro=()=>{
     volverInicioSesion.id="linkInicio";
     btnGoogle.id="btnGoogle";
 
-   let inicioLogin= document.getElementById("linkInicio");
-    inicioLogin.addEventListener("click", loginDiv);
+  //  let inicioLogin= document.getElementById("linkInicio");
+  //   inicioLogin.addEventListener("click", loginDiv);
     
     
     const googleInicioSesion= document.getElementById("btnGoogle");
@@ -123,5 +123,6 @@ export const registro=()=>{
             // ...
           });
     });
+    window.location.hash='#/signUp';
 } 
 

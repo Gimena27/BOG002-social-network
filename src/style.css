@@ -15,8 +15,11 @@ main h1 {
 }
 body{
     margin-top:81px;
-    background: url(IMG/fondoLogin1.jpg);
+    background: url(../src/IMG/fondoLogin1.jpg);
 } 
+body #root{
+    display: none;
+}
 .containerUno{
     display:flex;
     background: rgba(255, 255, 255, 0.74);
@@ -65,6 +68,7 @@ form button{
     background: rgba(232, 181, 49, 0.88);
     margin-left: 23px;
     border: transparent;
+    margin-bottom: 20px;
 }
 form label{
     font-family: 'Reem Kufi', sans-serif;
@@ -117,7 +121,11 @@ form p{
     height: 500px;
     margin-left: 19px;
     margin-top: 57px;
-}    
+} 
+.containerDos #VolverInicio{
+    font-family: 'Reem Kufi', sans-serif;
+    margin-left: 30%;
+}   
 
 .loginGoogleDos{
     background: rgba(255, 255, 255, 0.74);
