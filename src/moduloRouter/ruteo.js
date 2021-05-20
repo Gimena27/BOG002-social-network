@@ -1,7 +1,7 @@
 import { loginDiv } from '../moduloAuthentication/login.js';
-import { registro } from '../moduloAuthentication/Signup.js';
-import { contraseña } from '../moduloHome/contraseña.js';
-
+import { registro,succesRegister } from '../moduloAuthentication/Signup.js';
+import { password } from '../moduloHome/contraseña.js';
+import {settingsUsers} from '../moduloProfile/profile.js';
 export const router = (route) => {
     let content = document.getElementById("root");
     content.innerHTML = "";
@@ -19,10 +19,17 @@ export const router = (route) => {
 
             break;
         case '#/password':
-            content.innerHTML = contraseña();
+            content.innerHTML = password();
 
             break;
-            
+        case '#/succesRegister':
+            content.innerHTML = succesRegister();
+
+            break;
+        case '#/SettingsUser':
+            content.innerHTML = settingsUsers();
+
+            break;
         default:
             console.log('404!!!');
 

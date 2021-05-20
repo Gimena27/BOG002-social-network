@@ -2,7 +2,7 @@
 import{restorePassword}from '../lib/index.js';
 
 
-export const contraseña=()=>{
+export const password =()=>{
     let select = document.querySelector("main");
     select.innerHTML="";
     let divContraseña= document.createElement("div");
@@ -43,21 +43,18 @@ export const contraseña=()=>{
     btnEnviarEnlace.id = "btnEnviarEnlace"
     textVolverInicio.id = "VolverInicio";
    
-    const formRestaurarContraseña= document.getElementById("btnEnviarEnlace");
-    formRestaurarContraseña.addEventListener("click",(event)=>{
-        console.log("click");
-        const emailLogin= document.getElementById("emailLogin").value;
+    let email = document.getElementById("emailLogin"); 
+    let btnRestablecer=document.getElementById("btnEnviarEnlace");
+      btnRestablecer.addEventListener("click",(event) =>{
         event.preventDefault();
-        //auth.sendPasswordResetEmail(emailAddress);
-        restorePassword()
-        .then( (inputEmail) => {
-                console.log("se envio correo");
-            }).catch(function (error) {
-                console.log("existe un error");
-            });
-
-        //return emailLogin ;
-    })
-    
+        console.log("se envio un correo")
+        restorePassword(email).then(function() {
+          //  window.location = "http://localhost:5000/"
+        //    location.reload()
+         }).catch(function(error) {
+             console.log ("error al enviar")
+           // An error happened.
+         });
+     })
     window.location.hash = '#/contraseña';
 }

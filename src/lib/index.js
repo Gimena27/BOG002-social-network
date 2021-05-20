@@ -19,10 +19,34 @@ export const registerUser = (email ,password ) =>{
   .signInWithPopup(provider);
 
 };
-
-export const restorePassword = () => {
-  var auth = firebase.auth();
-  var emailAddress = "giplo1995@hotmail.com";
-
-  return auth.sendPasswordResetEmail(emailAddress);
+export function observador() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("existe usuario activo");
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+      // ...
+    } else {
+      console.log("no existe usuario activo");
+      // User is signed out
+      // ...
+    }
+  });
 };
+export const restorePassword = (email) =>{
+  var auth = firebase.auth()
+  var emailAddress = email.value;
+  return auth.sendPasswordResetEmail(emailAddress);
+}
+export function signOutSesion(){
+  // auth.signOut().then(()=>{
+  // console.log('user signed out')
+  // })
+ firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
+  });
+ }
+ 

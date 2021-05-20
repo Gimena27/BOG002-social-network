@@ -1,5 +1,4 @@
 import { router } from './moduloRouter/ruteo.js';
-
 const init = () => {
   var firebaseConfig = {
     apiKey: "AIzaSyCcwsf7v_1XVXk6XH8012kZm6sX1_bZ_UI",
@@ -15,5 +14,6 @@ const init = () => {
     router(window.location.hash);
   });
   router(window.location.hash);
+  
 }
 init();

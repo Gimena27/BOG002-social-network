@@ -1,5 +1,4 @@
-import {login,loginGoogle} from '../lib/index.js';
-
+import {login,loginGoogle,observador} from '../lib/index.js';
 export const loginDiv=()=>{
     let select = document.querySelector("main");
     select.innerHTML="";
@@ -59,7 +58,7 @@ export const loginDiv=()=>{
           });
           
     });
-
+    observador();
     let divLoginDos=document.createElement("div");
     let btnGoogle=document.createElement("button");
     let imgGoogle=document.createElement("img");
