@@ -1,21 +1,22 @@
 import { loginDiv } from '../moduloAuthentication/login.js';
+import { showLogin } from '../moduloAuthentication/muro.js';
 import { registro,succesRegister } from '../moduloAuthentication/Signup.js';
 import { password } from '../moduloHome/contraseña.js';
 import {settingsUsers} from '../moduloProfile/profile.js';
 export const router = (route) => {
-    let content = document.getElementById("root");
+    let content = document.querySelector("#root");
     content.innerHTML = "";
     switch (route) {
         case '#/login':
-            content.innerHTML = loginDiv();
+            content.appendChild(loginDiv());
 
             break;
         case '':
-            content.innerHTML = loginDiv();
+            content.appendChild(loginDiv());
 
             break;
         case '#/signUp':
-            content.innerHTML = registro();
+            content.appendChild(registro());
 
             break;
         case '#/password':
@@ -23,11 +24,19 @@ export const router = (route) => {
 
             break;
         case '#/succesRegister':
-            content.innerHTML = succesRegister();
+            // let nodo =  succesRegister()
+            // console.log(nodo);
+            content.appendChild(succesRegister());
+            console.log(content);
+            // content.innerHTML =succesRegister();
 
             break;
         case '#/SettingsUser':
-            content.innerHTML = settingsUsers();
+            content.appendChild(settingsUsers());
+
+            break;
+        case '#/post':
+            content.appendChild(showLogin());
 
             break;
         default:

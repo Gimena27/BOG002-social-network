@@ -1,24 +1,35 @@
 import { registerUser, loginGoogle } from '../lib/index.js';
-import {settingsUsers} from '../moduloProfile/profile.js';
+// import {settingsUsers} from '../moduloProfile/profile.js';
 
 export const succesRegister=() => {
-  let select = document.querySelector("main");
+//  console.log (contenedorDos);
+// let select = document.querySelector("main");
+let select = document.createElement("div");
   select.innerHTML = "";
   const succesTemplate = `<h1>Animalandia</h1>
   <div>
     <h2>¡Registro exitoso!</h2>
-    <img src="../src/IMG/check.png" alt="check">
+    <img src="IMG/check.png" alt="check">
   </div>
   <button id="siguiente" type="button">Siguiente</button>`;
-  let btn=document.getElementById("siguiente");
-  btn= document.addEventListener("click",settingsUsers);
-  window.location.hash = "#/succesRegister";
-  return select.innerHTML= succesTemplate;
+  select.innerHTML= succesTemplate;
+  const btn=select.querySelector("#siguiente");
+  
+  btn.addEventListener("click", ()=>{
+    window.location.hash = "#/SettingsUser"
+  });
+  
+  // console.log(window.location.hash);
+  
+  // console.log(select);
+
+
+  return select;
   
 }
 
 export const registro = () => {
-  let select = document.querySelector("main");
+  let select =document.createElement("div");
   select.innerHTML = "";
   let divRegistro = document.createElement("div");
   let formRegistro = document.createElement("form");
@@ -68,8 +79,8 @@ export const registro = () => {
   inputNombre.id = "inputNombre";
   btnRegistro.id = "btnRegistro";
 
-  const formRegister = document.getElementById("btnRegistro");
-  formRegister.addEventListener("click", (event) => {
+  
+  btnRegistro.addEventListener("click", (event) => {
     const registrarEmail = document.getElementById("inputEmail").value;
     const registrarContraseña = document.getElementById("inputContraseña").value;
     const registrarNombre = document.getElementById("inputNombre");
@@ -79,9 +90,12 @@ export const registro = () => {
     event.preventDefault();
     registerUser(registrarEmail, registrarContraseña, registrarNombre)
       .then((userCredential) => {
+        
+        // window.location.hash = "#/succesRegister";
         return userCredential.user;
       })
       .catch((error) => {
+        window.location.hash = "#/succesRegister";
         console.log('error', error);
       });
   })
@@ -93,7 +107,7 @@ export const registro = () => {
   let volverInicioSesion = document.createElement("a");
 
   btnGoogle.textContent = "Inicia sesión con google";
-  imgGoogle.src = "../src/IMG/icongoogle.png";
+  imgGoogle.src = "IMG/icongoogle.png";
   tienesCuentaTitulo.textContent = "¿Tienes una cuenta?";
   volverInicioSesion.textContent = "Inicia sesión";
 
@@ -108,10 +122,12 @@ export const registro = () => {
   volverInicioSesion.id = "linkInicio";
   btnGoogle.id = "btnGoogle";
   
-  btnRegistro= document.addEventListener("click", succesRegister);
+  // btnRegistro.addEventListener("click", succesRegister(divRegistro));
+  // console.log("debog", btnRegistro);
 
-  const googleInicioSesion = document.getElementById("btnGoogle");
-  googleInicioSesion.addEventListener("click", (event) => {
+
+  // const googleInicioSesion = document.getElementById("btnGoogle");
+ btnGoogle.addEventListener("click", (event) => {
     console.log("click");
     event.preventDefault();
     loginGoogle()
@@ -135,5 +151,5 @@ export const registro = () => {
         // ...
       });
   });
-  window.location.hash = '#/signUp';
+ return select;
 }

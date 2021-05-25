@@ -1,9 +1,10 @@
 import{showLogin} from '../moduloAuthentication/muro.js';
 export const settingsUsers =()=>{
-    let select = document.querySelector("main");
+    console.log("settingsUsers");
+    let select = document.createElement("div");
     select.innerHTML = "";
    const profileTemplate= `<h1>Animalndia</h1>
-   <img src="../src/IMG/gato.jpg" alt="gato">
+   <img src="IMG/gato.jpg" alt="gato">
    <button>Selecciona tu foto de perfil</button>
    <button type="menu">Selecciona tu especie</button>
    <ul class="menuEspecies">
@@ -19,10 +20,13 @@ export const settingsUsers =()=>{
               </li>
           </ul>
    <button id="irAlMuro">Siguiente</button>`;
-   let irMuro= document.getElementById("irAlMuro");
-   irMuro= document.addEventListener("click",showLogin);
-   window.location.hash='#/SettingsUser';
-   return select.innerHTML=profileTemplate;
+   select.innerHTML = profileTemplate;
+   const btnMuro= select.querySelector("#irAlMuro");
+   btnMuro.addEventListener("click", () => {
+    window.location.hash = "#/post"
+   });
+   
+   return select;
   }
 
 

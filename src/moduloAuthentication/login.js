@@ -1,6 +1,7 @@
 import {login,loginGoogle,observador} from '../lib/index.js';
 export const loginDiv=()=>{
-    let select = document.querySelector("main");
+    // let select = document.querySelector("main");
+    let select = document.createElement("div");
     select.innerHTML="";
     let divLogin=document.createElement("div");
     let formulario=document.createElement("form");
@@ -39,8 +40,9 @@ export const loginDiv=()=>{
     inputEmail.id="emailLogin";
     inputContraseña.id="contraseñaLogin";
 
-    const formInicioSesion= document.getElementById("btnInicioSesion");
-    formInicioSesion.addEventListener("click",(event)=>{
+    // const formInicioSesion= formulario.getElementById("btnInicioSesion");
+    
+    btnInicioSesion.addEventListener("click",(event)=>{
         console.log("click");
         const emailLogin= document.getElementById("emailLogin").value;
         const contraseñaLogin= document.getElementById("contraseñaLogin").value;
@@ -87,8 +89,8 @@ export const loginDiv=()=>{
     olvidarContraseña.id ="recuperarContraseña";
    
    
-    const googleInicioSesion= document.getElementById("btnGoogle");
-    googleInicioSesion.addEventListener("click",(event)=>{
+    // const googleInicioSesion= formulario.getElementById("btnGoogle");
+    btnGoogle.addEventListener("click",(event)=>{
         console.log("click");
         event.preventDefault();
         loginGoogle()
@@ -113,7 +115,8 @@ export const loginDiv=()=>{
           });
     });
     
-     window.location.hash = '#/login';
+    //  window.location.hash = '#/login';
+    return select;
 }
 
   

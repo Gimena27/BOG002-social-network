@@ -34,11 +34,15 @@ export function observador() {
     }
   });
 };
+
+
 export const restorePassword = (email) =>{
   var auth = firebase.auth()
   var emailAddress = email.value;
   return auth.sendPasswordResetEmail(emailAddress);
 }
+
+
 export function signOutSesion(){
   // auth.signOut().then(()=>{
   // console.log('user signed out')
