@@ -163,11 +163,11 @@ form p{
     display: grid;
     grid-template-columns:25% 50% 25%;
     grid-template-rows: 20% 40% 70% 10%;
-    height: 100vh;
-    width: 100%;
+    height: 70vh;
+    width: 70%;
     align-items: center;
 }
-#contenedorMuro h1{
+ h4{
    grid-column-start:1;
    grid-column-end:2;
    grid-row-start:1;
@@ -175,7 +175,7 @@ form p{
    justify-self:center;
    align-self: center;
    text-align:left;
-   color: white;
+   color: rgb(156, 58, 58);
    font-family: 'Cherry Cream Soda', cursive;
 }
 #salir{
@@ -211,16 +211,18 @@ form p{
     margin-top: -60px;
     margin-right: 5px;
 }
-/* #contenedorMuro #post{
-   grid-column-start: 2;
+#contenedorMuro .insertar-publicacion{
+   /* grid-column-start: 2;
    grid-column-end: 3;
    grid-row-start:2 ;
-   grid-row-end: 3;
+   grid-row-end: 3; */
    justify-self:left;
    align-self: center;
-   background-color:transparent;
+   background-color:black;
    padding: 20%;
-} */
+   width: 150px;
+   height: 150px;
+}
 
 @media (min-width:500px){
     body{

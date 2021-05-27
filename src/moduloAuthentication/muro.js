@@ -14,14 +14,19 @@ export const showLogin = () => {
         <div id="contenedorMuro">
          
         <h4>¿Que tal tú día?</h4>
-    <form id="area_post">
+     <form id="area_post">
         <img id="foto-usuario" src="IMG/GATO.jpg">
        <div class="insertar-publicacion">
-           <input type="textarea" name = "text" id= "publicacion" maxlength="250" minlength="2" required class="publicar" placeholder=" Realiza una publicación"> 
+       
+           <input type="POST" id= "publicacion" enctype="multipart/formdata" placeholder=" Realiza una publicación">
+     	   <input type="file" name="imagen1" id ="imgPost"/>
+	
            <div>
               <button type="submit" class="btn" id="publicar-btn"> Publicar </button> 
               
            </div>
+
+
         </div>
         
         
@@ -45,29 +50,57 @@ export const showLogin = () => {
     select.innerHTML = muroTemplate;
 
     const db = firebase.firestore();
+    // const storageref = firebase.storage().ref();
+    // // const mountainsRef = storageRef.child('mountains.jpg');
 
-    const post = select.querySelector("#publicar-btn");
-    console.log(post);
 
-    const savePost = (description) =>
-      db.collection("publicaciones").doc().set({
+    const post = select.querySelector("#area_post");
+    const postContainer = document.getElementById("postContainer");
+    // console.log(post);
 
-        description
-        })
 
- post.addEventListener("click", async (e) => {
+
+
+    //aqui va en () imgPost
+    const savePost = (description,) =>
+        db.collection("publicaciones").doc().set({
+
+
+            description,
+            // imgPost
+
+        });
+
+    const getPost = () => db.collection("publicaciones").get();
+
+    window.addEventListener('DOMContentLoaded', async (e) => {
+        const querySnapshot = await getPost()
+        querySnapshot.forEach(doc => {
+            console.log(doc.data());
+            postContainer.innerHTML += `<div>
+            ${doc-data().description}
+            </div>`
+
+
+        });
+    });
+
+
+    post.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const description = document.getElementById("publicacion").value;
+        const description = document.getElementById("publicacion");
+        // const imgPost = document.getElementById("imgPost").value;
         console.log("enviando", description);
 
-        await savePost(description);
+        await savePost(description.value);
 
-        //  post.reset();
-        //  description.focus();
-       
+        post.reset();
+        description.focus();
 
-        
-    })
+        // console.log(description);
+
+
+    });
 
     return select;
 
