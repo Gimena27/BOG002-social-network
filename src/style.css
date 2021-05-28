@@ -167,7 +167,7 @@ form p{
     width: 70%;
     align-items: center;
 }
- h4{
+#contenedorMuro h1{
    grid-column-start:1;
    grid-column-end:2;
    grid-row-start:1;
@@ -175,7 +175,7 @@ form p{
    justify-self:center;
    align-self: center;
    text-align:left;
-   color: rgb(156, 58, 58);
+   color: white;
    font-family: 'Cherry Cream Soda', cursive;
 }
 #salir{
@@ -211,19 +211,41 @@ form p{
     margin-top: -60px;
     margin-right: 5px;
 }
-#contenedorMuro .insertar-publicacion{
-   /* grid-column-start: 2;
+#contenedorMuro .area-post{
+   grid-column-start: 2;
    grid-column-end: 3;
    grid-row-start:2 ;
-   grid-row-end: 3; */
+   grid-row-end: 3;
    justify-self:left;
    align-self: center;
-   background-color:black;
+   background-color:blue;
    padding: 20%;
-   width: 150px;
-   height: 150px;
 }
+#contenedorMuro .insertar-publicacion{
+    /* grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:2 ;
+    grid-row-end: 3; */
+    justify-self:left;
+    align-self: center;
+    background-color:rgb(214, 130, 130);
+    padding: 20%;
+    width: 550px;
+    height: 250px;
+ }
+.info-post{
+    /* grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:2 ;
+    grid-row-end: 3; */
+    justify-self:left;
+    align-self: center;
+    background-color:rgb(130, 214, 196);
+    /*padding: 20%;*/
+    width: 300px;
+    height: 250px;
 
+ }
 @media (min-width:500px){
     body{
     background-repeat: no-repeat;
@@ -251,20 +273,13 @@ form p{
 #area_post{
     position: relative;
     top: 1.5em;
-    width: 100vw;
+    /* width: 100vw; */
     display:inline-flex;
     align-items: center;
     flex-wrap: wrap;
     height: 28vh;
 }
-.insertar-publicacion{
-  width: 500vw;
-  height: 20vh;
-  left: 0em;
-  top: 0em;
-  position: relative;
-}
-  
+
   
 
 #foto-usuario{
