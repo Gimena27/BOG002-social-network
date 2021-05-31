@@ -90,12 +90,11 @@ export const registro = () => {
     event.preventDefault();
     registerUser(registrarEmail, registrarContraseña, registrarNombre)
       .then((userCredential) => {
-        
-        // window.location.hash = "#/succesRegister";
+         window.location.hash = "#/succesRegister";
         return userCredential.user;
       })
       .catch((error) => {
-        window.location.hash = "#/succesRegister";
+        window.location.hash = "#/signUp";
         console.log('error', error);
       });
   })

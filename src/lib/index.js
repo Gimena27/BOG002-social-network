@@ -42,6 +42,10 @@ export const restorePassword = (email) =>{
   return auth.sendPasswordResetEmail(emailAddress);
 }
 
+export function usuarioRegistrado(){
+  let user = firebase.auth().currentUser;
+    return user;
+}
 
 export function signOutSesion(){
   // auth.signOut().then(()=>{

@@ -52,11 +52,15 @@ export const loginDiv=()=>{
         event.preventDefault();
         login(emailLogin,contraseñaLogin)
         .then((userCredential) => {
-          window.location = '#/login';
+          window.location = '#/post';
             console.log(userCredential.user) ;
           })
           .catch((error) => {
-            console.log ('error', error );
+            if(error.code=== "auth/user-not-found"){
+              console.log ('error', error );
+              //mostrar mensaje de error para que ingrese usuario o ocntrase;a correcta
+            }
+            
           });
           
     });

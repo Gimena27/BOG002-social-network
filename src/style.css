@@ -6,7 +6,7 @@ font-family: 'Reem Kufi', sans-serif;*/
     padding: 0;
     text-decoration: none;
 }
-main h1 {
+h1 {
     font-family:'Fondamento', cursive;
     text-align: center;
     color: #FFFFFF;
@@ -17,8 +17,6 @@ body{
     margin-top:81px;
     background: url(IMG/fondoLogin1.jpg);
 } 
-
-
 .containerUno{
     display:flex;
     background: rgba(255, 255, 255, 0.74);
@@ -246,29 +244,6 @@ form p{
     height: 250px;
 
  }
-@media (min-width:500px){
-    body{
-    background-repeat: no-repeat;
-    }
-   .container1{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-   } 
-   .loginGoogle{
-    width: 286px;
-    height: 150px;
-   }
- main h1{
-    width:80%;
-    height:100%;
-    left:-100%;
-    margin:0;
-    position: fixed;
- }   
-  }
-
-
 /* para publicar */
 #area_post{
     position: relative;
@@ -279,9 +254,6 @@ form p{
     flex-wrap: wrap;
     height: 28vh;
 }
-
-  
-
 #foto-usuario{
     width: 50px;
     height: 50px;
@@ -367,6 +339,11 @@ form p{
     padding: 0.5em;
     color: #fff;
     font-size: 15px;
+}
+#imgUsuario{
+    width: 322px;
+    height: 300px;
+    border-radius: 50%;
 }
  /* #search-area{
     padding: 0.5em;

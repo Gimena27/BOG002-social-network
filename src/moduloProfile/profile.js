@@ -3,22 +3,19 @@ export const settingsUsers =()=>{
     console.log("settingsUsers");
     let select = document.createElement("div");
     select.innerHTML = "";
-   const profileTemplate= `<h1>Animalndia</h1>
-   <img src="IMG/gato.jpg" alt="gato">
+   const profileTemplate= `
+   <h1>Animalandia</h1>
+   <img id="imgUsuario" src="IMG/gato.jpg" alt="gato">
    <button>Selecciona tu foto de perfil</button>
-   <button type="menu">Selecciona tu especie</button>
-   <ul class="menuEspecies">
-              <li><a id="linkMenuEspecies" href="#">Selecciona tu especie</a>
-                  <ul class="subMenuEspecies" id="subMenuEspecies">
-                      <li><a href="#">Caninos</a></li>
-                      <li><a href="#">Felinos</a></li>
-                      <li><a href="#">Aves</a></li>
-                      <li><a href="#">Mamiferos</a></li>
-                      <li><a href="#">Exoticos</a></li>
-                      <li><a href="#">Otros</a></li>
-                  </ul>
-              </li>
-          </ul>
+   <h2>Selecciona tu especie</h2>
+   <select name="Selecciona tu especie">
+        <option>Caninos</option>
+        <option>Felinos</option>
+        <option>Aves</option>
+        <option>Mamiferos</option>
+        <option>Exoticos</option>
+        <option>Otros</option>
+    </select>
    <button id="irAlMuro">Siguiente</button>`;
    select.innerHTML = profileTemplate;
    const btnMuro= select.querySelector("#irAlMuro");
