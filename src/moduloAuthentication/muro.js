@@ -1,4 +1,4 @@
-//import { signOutSesion } from '../lib/index.js';
+import { salir } from '../lib/index.js';
 
 
 export const showLogin = () => {
@@ -118,7 +118,8 @@ export const showLogin = () => {
                         return doc.data();
                     });
                     const poster = doc.data();
-                    formPost["description"]= poster.description;
+                    formPost["publicación"] = poster.description;
+                    
                     })
                 })
             })
@@ -128,7 +129,7 @@ export const showLogin = () => {
     
      formPost.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const description = document.getElementById("publicacion");
+        const description = area_post["publicacion"];
         // console.log("enviando", description);
 
         await savePost(description.value);
@@ -148,11 +149,9 @@ export const showLogin = () => {
 
 }
 
-
-export function signOut() {
-    const salir = document.querySelector("#salir");
-    salir.addEventListener("click", () => {
-        window.location.hash = '#/muro';
-    });
+export function cerrarSesion() {
+    let btnCerrar = document.getElementById("salir");
+    btnCerrar.addEventListener('click', salir);
 }
+
 

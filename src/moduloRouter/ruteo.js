@@ -1,13 +1,17 @@
 import { loginDiv } from '../moduloAuthentication/login.js';
-import { showLogin } from '../moduloAuthentication/muro.js';
+import { showLogin, cerrarSesion} from '../moduloAuthentication/muro.js';
 import { registro,succesRegister } from '../moduloAuthentication/Signup.js';
 import { password } from '../moduloHome/contraseña.js';
 import {settingsUsers} from '../moduloProfile/profile.js';
 import  {usuarioRegistrado} from '../lib/index.js';
+
+
+
 export const router = (route) => {
     let content = document.querySelector("#root");
     content.innerHTML = "";
     let user= usuarioRegistrado();
+    
     switch (route) {
         case '#/login':
             console.log("user:",user);
@@ -35,8 +39,16 @@ export const router = (route) => {
 
             break;
         case '#/post': 
-            content.appendChild(showLogin());
+           
              
+            if (user) {
+                content.appendChild(showLogin());
+                
+                   cerrarSesion();
+                     
+           }else {
+             window.location.hash ='#/login'
+           }
             break;
         default:
             console.log('404!!!');
