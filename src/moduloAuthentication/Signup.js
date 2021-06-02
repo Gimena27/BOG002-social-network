@@ -83,7 +83,7 @@ export const registro = () => {
   btnRegistro.addEventListener("click", (event) => {
     const registrarEmail = document.getElementById("inputEmail").value;
     const registrarContraseña = document.getElementById("inputContraseña").value;
-    const registrarNombre = document.getElementById("inputNombre");
+    const registrarNombre = document.getElementById("inputNombre").value;
 
     console.log(registrarEmail, registrarContraseña);
 
@@ -91,7 +91,10 @@ export const registro = () => {
     registerUser(registrarEmail, registrarContraseña, registrarNombre)
       .then((userCredential) => {
          window.location.hash = "#/succesRegister";
-        return userCredential.user;
+        return userCredential.user.updateProfile({
+          displayName: registrarNombre
+          
+        })
       })
       .catch((error) => {
         window.location.hash = "#/signUp";

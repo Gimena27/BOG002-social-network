@@ -7,7 +7,7 @@ export const showLogin = () => {
     const muroTemplate = `
         <h1 id="tituloMuro">Animalandia</h1>
     <div id="contenedorBtnSettings">
-         <button type="button" id="editarPerfil"><img src="IMG/post.png" alt="post">Publicar</button>
+         <button type="button" id="hacerPublicacion"><img src="IMG/post.png" alt="post">Publicar</button>
          <button type="button" id="salir"><img src="IMG/exit.png" alt="exit">Salir</button> 
         </div>
         <div id="contenedorMuro">
@@ -19,7 +19,7 @@ export const showLogin = () => {
        <input type="POST" id= "publicacion" enctype="multipart/formdata" placeholder=" Realiza una publicación">
        <input type="file" name="imagen1" id ="imgPost"/>
            <div>
-              <button type="submit" class="btn" id="publicar-btn"> Publicar </button> 
+              <button type="submit" class="btn" value=Publicar id="publicar-btn"> Publicar </button> 
               
            </div>
         </div>
@@ -46,6 +46,15 @@ export const showLogin = () => {
    </footer>
 `;
     select.innerHTML = muroTemplate;
+
+    ///////////////Gime Aqui esta el problema :( ///////////////
+    
+    let sectionEdit = select.querySelector("#hacerPublicacion");
+    sectionEdit.addEventListener("click", () =>{
+    select.querySelector("#insertar-publicacion").style.display = "block";
+    
+    })
+/////////////////////////////////////////////
 
     const db = firebase.firestore();
 
@@ -86,7 +95,7 @@ export const showLogin = () => {
                 // console.log(showPost); 
 
                 postContainer.innerHTML += `<div class="info-post">
-            <p4> ${showPost.description}</p4>
+            <h4> ${showPost.description}</h4>
             <div>
                 <button>
                     <i class="fas fa-trash-alt   btn-delete" data-id ="${showPost.id}" ></i>
@@ -94,6 +103,10 @@ export const showLogin = () => {
                 <button>
                     <i class="far fa-edit   btn-editar"  data-id ="${showPost.id}" ></i>
                 </button>
+                <button>
+                    <i class="far fa-heart"   btn-like" data-id ="${showPost.id}" ></i>
+                </button>
+               
             </div>
             </div>`
 
@@ -150,8 +163,10 @@ export const showLogin = () => {
 }
 
 export function cerrarSesion() {
-    let btnCerrar = document.getElementById("salir");
-    btnCerrar.addEventListener('click', salir);
+    
+    let btnCerrar =document.getElementById("salir");
+    btnCerrar.addEventListener('click', ()=>{
+    window.location.hash = "#/login"
+    });
 }
-
 

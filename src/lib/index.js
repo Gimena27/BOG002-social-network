@@ -1,5 +1,5 @@
 
-export const registerUser = (email ,password ) =>{
+export const registerUser = (email ,password, Name) =>{
   return firebase
    .auth()
    .createUserWithEmailAndPassword(email, password)
@@ -46,13 +46,9 @@ export function usuarioRegistrado(){
   let user = firebase.auth().currentUser;
     return user;
 }
+
 export function salir(){
   
   firebase.auth().signOut()
-  .then(() => {
-    // Sign-out successful.
-    window.location.hash = "#/login"
-  }).catch((error) => {
-    console.log('no se pudo cerrar sesion')
-  });
+  
 }

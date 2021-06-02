@@ -5,8 +5,11 @@ export const settingsUsers =()=>{
     select.innerHTML = "";
    const profileTemplate= `
    <h1>Animalandia</h1>
+   <form>
    <img id="imgUsuario" src="IMG/gato.jpg" alt="gato">
-   <button>Selecciona tu foto de perfil</button>
+   <input type="file" name="imagen1" id ="imgUser"/>
+   <input type="submit" value="Guardar">
+   </form>
    <h2>Selecciona tu especie</h2>
    <select name="Selecciona tu especie">
         <option>Caninos</option>
