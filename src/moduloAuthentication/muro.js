@@ -47,12 +47,16 @@ export const showLogin = () => {
 `;
     select.innerHTML = muroTemplate;
 
-    ///////////////Gime Aqui esta el problema :( ///////////////
+    ///////////////listo el problema :D ///////////////
     
     let sectionEdit = select.querySelector("#hacerPublicacion");
+    select.querySelector(".insertar-publicacion").style.display = "none";
     sectionEdit.addEventListener("click", () =>{
-    select.querySelector("#insertar-publicacion").style.display = "block";
-    
+    select.querySelector(".insertar-publicacion").style.display = "block";
+    })
+    let hideEditSection= select.querySelector("#publicar-btn");
+    hideEditSection.addEventListener("click",()=>{
+        select.querySelector(".insertar-publicacion").style.display = "none";
     })
 /////////////////////////////////////////////
 
