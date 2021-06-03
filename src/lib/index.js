@@ -52,3 +52,4 @@ export function salir(){
   firebase.auth().signOut()
   
 }
+

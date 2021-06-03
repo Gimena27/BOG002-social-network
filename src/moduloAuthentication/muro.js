@@ -23,13 +23,6 @@ export const showLogin = () => {
               
            </div>
         </div>
-        
-        
-        
-        
-         
-       
-   
     </form>
     </div> 
 
@@ -48,39 +41,81 @@ export const showLogin = () => {
     select.innerHTML = muroTemplate;
 
     ///////////////Gime Aqui esta el problema :( ///////////////
-    
-    let sectionEdit = select.querySelector("#hacerPublicacion");
-    sectionEdit.addEventListener("click", () =>{
-    select.querySelector("#insertar-publicacion").style.display = "block";
-    
-    })
-/////////////////////////////////////////////
+
+    // let sectionEdit = select.querySelector("#hacerPublicacion");
+    // select.querySelector(".insertar-publicacion").style.display = "none";
+    // sectionEdit.addEventListener("click", () => {
+    //     select.querySelector(".insertar-publicacion").style.display = "block";
+    // })
+    // let hideEditSection = select.querySelector("#publicar-btn");
+    // hideEditSection.addEventListener("click", () => {
+    //     select.querySelector(".insertar-publicacion").style.display = "none";
+    // })
+
+
+
+    // let clicks = 14;
+    // console.log(clicks);
+    // let btnLike =document.querySelectorAll("#btn-like").innerHTML = clicks;
+    // btnLike.addEventListener("click", () => {
+    //     clicks += 1;
+    //     document.querySelectorAll("#btn-like").innerHTML = clicks;
+    //     $('.far fa-heart').addClass("liked");
+
+    //     return cli
+    // });
+
+    /////////////////////////////////////////////
 
     const db = firebase.firestore();
 
     let formPost = select.querySelector("#area_post");
-    
-    const postContainer = select.querySelector("#containerPost");
-    // console.log(post);
 
-    const savePost = (description) =>
+    const postContainer = select.querySelector("#containerPost");
+    let editStatus = false;
+    let id = "";
+
+    const savePost = (description,) => {
         db.collection("publicaciones").doc().set({
 
-            description
-        })
+            description,
 
-/////////funciones de firebase/////////
+
+        })
+    }
+
+    /////////funciones de firebase/////////
     const getPost = () => db.collection("publicaciones").get();
 
     const textPost = (id) => {
         console.log(id);
-        return db.collection("publicaciones").doc(id).get()};
+        return db.collection("publicaciones").doc(id).get()
+    };
 
     const onGetPost = (callback) => db.collection("publicaciones").onSnapshot(callback)
 
     const deletePost = (id) => {
         console.log(id);
-        return db.collection("publicaciones").doc(id).delete()};
+        return db.collection("publicaciones").doc(id).delete()
+    };
+
+    const updatePost = (id, updatedPost) => {
+        db.collection("publicaciones").doc(id).update(updatedPost)
+    };
+    const updateLike = (id) => {
+        db.collection("publicaciones").doc(id).update({
+            likes: firebase.firestore.FieldValue.increment(1)
+
+        })
+    }
+    // const likes = (id) => {
+
+    //     db.collection("publicaciones").doc(id).update({
+    //         likes: firebase.firestore.FieldValue - increment(+1)
+
+    //     })
+    //     return promise
+    // }
 
 
 
@@ -104,48 +139,94 @@ export const showLogin = () => {
                     <i class="far fa-edit   btn-editar"  data-id ="${showPost.id}" ></i>
                 </button>
                 <button>
-                    <i class="far fa-heart"   btn-like" data-id ="${showPost.id}" ></i>
+                    <i class="far fa-heart   btn-like" data-id ="${showPost.id}" ></i>
                 </button>
                
             </div>
             </div>`
 
-            //////borrar post///////
+                //////borrar post///////
                 const btnDelete = document.querySelectorAll(".btn-delete");
                 // console.log(btnDelete);
                 btnDelete.forEach(btn => {
                     btn.addEventListener("click", (e) => {
                         console.log(e)
-                        deletePost( e.target.dataset.id).then(doc=>{
+                        deletePost(e.target.dataset.id).then(doc => {
                             return doc;
                         });
                     });
                 });
-             /////editar post//////
+                /////editar post//////
                 const btnEditar = document.querySelectorAll(".btn-editar");
-                btnEditar.forEach(btn =>{
-                    btn.addEventListener("click",(e) =>{
-                    console.log(e)
-                    textPost(e.target.dataset.id).then(doc=>{
-                        console.log(doc.data());
-                        return doc.data();
-                    });
-                    const poster = doc.data();
-                    formPost["publicación"] = poster.description;
-                    
-                    })
-                })
-            })
-        })
+                btnEditar.forEach(btn => {
+                    btn.addEventListener("click", (e) => {
+                        // console.log(e)
+                        textPost(e.target.dataset.id).then(doc => {
+                            // console.log(doc.data());
+                            const poster = doc.data();
+                            formPost["publicacion"].value = poster.description;
 
-    })
+
+                            editStatus = true;
+                            console.log(id);
+                            id = doc.id;
+
+                            console.log(formPost)
+
+                            formPost["publicar-btn"].innerText = "Actualizar";
+                        });
+
+
+
+
+                    });
+                });
+
+              
+           
+            });
+            const showLikes = document.querySelectorAll(".btn-like");
+            console.log(showLikes);
+            showLikes.forEach(btn => {
+                
+                btn.addEventListener("click", async (e) => {
+                    console.log(e.target.dataset.id);
+                    
+                    updateLike(e.target.dataset.id)
+                    // .then(doc => {
+                    //     let darLike = doc.data()
+                    //     console.log(formPost)
+                    //     formPost["btn-like"].value = darLike.like;
     
-     formPost.addEventListener("submit", async (e) => {
+                    // });
+                });
+            });
+        });
+
+        
+    });
+
+    formPost.addEventListener("submit", async (e) => {
         e.preventDefault();
         const description = area_post["publicacion"];
         // console.log("enviando", description);
+        // await savePost(description.value);
 
-        await savePost(description.value);
+        if (!editStatus) {
+            await savePost(description.value)
+
+        }
+        else {
+            await updatePost(id, {
+                description: description.value
+            });
+            editStatus = false;
+            id = "";
+
+            formPost["publicar-btn"].innerText = "Publicar"
+        }
+
+
 
 
 
@@ -163,10 +244,10 @@ export const showLogin = () => {
 }
 
 export function cerrarSesion() {
-    
-    let btnCerrar =document.getElementById("salir");
-    btnCerrar.addEventListener('click', ()=>{
-    window.location.hash = "#/login"
+
+    let btnCerrar = document.getElementById("salir");
+    btnCerrar.addEventListener('click', () => {
+        window.location.hash = "#/login"
     });
 }
 
