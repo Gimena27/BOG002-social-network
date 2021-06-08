@@ -325,9 +325,6 @@ form p{
     height: 300px;
     border-radius: 50%;
 }
-
-
-
  /* #search-area{
     padding: 0.5em;
     border: 1px solid #D9D2D2;
@@ -353,4 +350,67 @@ form p{
     margin-left: 1em;
 }
    */
+   @media screen and (min-width: 416px) {
+    *{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+    h1 {
+        font-family:'Fondamento', cursive;
+        text-align: center;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-size: 70px;
+    }
+    body{
+        margin-top:60px;
+        background: url(IMG/fondoLogin1Desktop.jpg);
+        background-size:100vw 100vh;
+    } 
+    .containerUno{
+        display:flex;
+        background: rgba(255, 255, 255, 0.74);
+        border-radius: 10px;
+        width: 380px;
+        height: 342px;
+        margin-left: 350px;
+        margin-top: 125px;
+    }
+    .loginGoogle{
+        background: rgba(255, 255, 255, 0.74);
+        font-family: 'Reem Kufi', sans-serif;
+        width: 377px;
+        height: 178px;
+        float: right;
+        border-radius: 10px;
+        margin-top: 0px;
+        margin-right: 320px;
+        text-align: center;
+        box-sizing: border-box;
+        transform: translateY(-270px);
+    }
+    .containerDos{
+        display:flex;
+        background: rgba(255, 255, 255, 0.74);
+        border-radius: 10px;
+        width: 380px;
+        height: 500px;
+        margin-left: 350px;
+        margin-top: 40px;
+    } 
+    .loginGoogleDos{
+        background: rgba(255, 255, 255, 0.74);
+        font-family: 'Reem Kufi', sans-serif;
+        width: 377px;
+        height: 178px;
+        float: right;
+        border-radius: 10px;
+        margin-top: 0px;
+        margin-right: 320px;
+        text-align: center;
+        box-sizing: border-box;
+        transform: translateY(-340px);
+    }
+}
    
