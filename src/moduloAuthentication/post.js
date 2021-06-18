@@ -1,6 +1,7 @@
-import { deletePost, savePost, updateLikes} from "./firebase.js";
+import { deletePost, savePost, updateLike} from "./firebase.js";
 import { formPost } from "./formPost.js";
 let likes=[];
+
 export function post(showPost) {
     const post = document.createElement("div");
     const descripcion= document.createElement("h4");
@@ -32,8 +33,8 @@ export function post(showPost) {
     iconoLike.className="far fa-heart   btn-like";
     iconoLike.addEventListener("click",()=>{
         console.log("like");
-        updateLikes(showPost.id).then(doc => {
-            likes.push(1);
+        updateLike(showPost.id).then(doc => {
+            likes.push();
             savePost(showPost.likes);
         });
     })

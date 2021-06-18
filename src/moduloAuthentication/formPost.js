@@ -1,7 +1,9 @@
 import {updatePost, savePost} from "./firebase.js";
+import {getUserId} from './user.js';
 let mode="create";
 let publicar;
 let idPost;
+let userUid;
 export function formPost(){
     const form=document.createElement("form");
     form.id="area_post";
@@ -50,20 +52,22 @@ function editMode(id,description){
     console.log("editando post",id,mode);
 }
 function createMode(){
+    mode = "create";
+    document.getElementById("publicar-btn").innerText="Publicar";
+    document.getElementById("publicacion").value="";
     console.log("creando post");
 }
 function submitForm(e){
     e.preventDefault();
     const contenidoPost=document.getElementById("publicacion").value;
     if (mode=== 'create') { 
-        savePost(contenidoPost);
+        savePost(contenidoPost, getUserId());
     }else{
         updatePost(idPost,{    
             description: contenidoPost,   
         })
-        document.getElementById("publicar-btn").innerText="Publicar";
     } 
-    document.getElementById("publicacion").value="";
+    createMode();
 }
 /*formPost.addEventListener("submit", async (e) => {
     e.preventDefault();

@@ -1,4 +1,6 @@
 import {login,loginGoogle,observador} from '../lib/index.js';
+import {setUser} from './user.js';
+
 export const loginDiv=()=>{
     // let select = document.querySelector("main");
     let select = document.createElement("div");
@@ -53,15 +55,15 @@ export const loginDiv=()=>{
         login(emailLogin,contraseñaLogin)
         .then((userCredential) => {
           window.location = '#/post';
-            console.log(userCredential.user) ;
-          })
-          .catch((error) => {
-            if(error.code=== "auth/user-not-found"){
-              console.log ('error', error );
-              //mostrar mensaje de error para que ingrese usuario o ocntrase;a correcta
-            }
-            
-          });
+          setUser(userCredential.user) ;
+        })
+        .catch((error) => {
+          if(error.code=== "auth/user-not-found"){
+            console.log ('error', error );
+            //mostrar mensaje de error para que ingrese usuario o ocntrase;a correcta
+          }
+          
+        });
           
     });
     observador();
