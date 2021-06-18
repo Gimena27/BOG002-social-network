@@ -1,10 +1,10 @@
 import { loginDiv } from '../moduloAuthentication/login.js';
-import { showLogin,cerrarSesion} from '../moduloAuthentication/muro.js';
+import { showLogin} from '../moduloAuthentication/muro.js';
 import { registro,succesRegister } from '../moduloAuthentication/Signup.js';
 import { password } from '../moduloHome/contraseña.js';
 import {settingsUsers} from '../moduloProfile/profile.js';
 import  {usuarioRegistrado} from '../lib/index.js';
-
+import{cerrarSesion} from '../moduloAuthentication/header.js';
 
 
 export const router = (route) => {
