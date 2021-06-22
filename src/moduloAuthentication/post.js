@@ -1,5 +1,6 @@
-import { deletePost, savePost, updateLike} from "./firebase.js";
+import { deletePost, savePost, updateLikes} from "./firebase.js";
 import { formPost } from "./formPost.js";
+import { getUserId,setUser} from "./user.js";
 let likes=[];
 
 export function post(showPost) {
@@ -33,11 +34,26 @@ export function post(showPost) {
     iconoLike.className="far fa-heart   btn-like";
     iconoLike.addEventListener("click",()=>{
         console.log("like");
-        updateLike(showPost.id).then(doc => {
-            likes.push();
-            savePost(showPost.likes);
-        });
-    })
+        let user = firebase.auth().currentUser;
+        console.log("usuario aaaaas",user.uid)
+        const likes = showPost.likes;
+        const miLike = likes.find(item => item === user.uid);
+        console.log("like",miLike)
+        if(miLike === user.uid){
+            likes.splice(user.uid, 1);
+            updateLikes(showPost.id, likes);
+        }else{
+            likes.push(user.uid)
+            updateLikes(showPost.id, likes);
+        }
+        
+          
+
+        
+    });
+  
+
+    
     post.appendChild(descripcion);
     post.appendChild(usuario);
     post.appendChild(divBtns);

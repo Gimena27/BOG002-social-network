@@ -54,8 +54,10 @@ export const loginDiv=()=>{
         event.preventDefault();
         login(emailLogin,contraseñaLogin)
         .then((userCredential) => {
+          console.log("user ", userCredential.user)
           window.location = '#/post';
           setUser(userCredential.user) ;
+          console.log("user ")
         })
         .catch((error) => {
           if(error.code=== "auth/user-not-found"){
@@ -101,6 +103,7 @@ export const loginDiv=()=>{
         event.preventDefault();
         loginGoogle()
         .then((result) => {
+          console.log(result.user);
             /** @type {firebase.auth.OAuthCredential} */
             var credential = result.credential;
         
@@ -108,7 +111,7 @@ export const loginDiv=()=>{
             var token = credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            // ...
+           
           }).catch((error) => {
             // Handle Errors here.
             var errorCode = error.code;

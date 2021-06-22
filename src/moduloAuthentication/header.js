@@ -42,8 +42,8 @@ export function header(){
 }
 export function cerrarSesion() {
 
-    /*let btnCerrar = document.getElementById("salir");
+    let btnCerrar = document.getElementById("salir");
     btnCerrar.addEventListener('click', () => {
         window.location.hash = "#/login"
-    });*/
+    });
 }

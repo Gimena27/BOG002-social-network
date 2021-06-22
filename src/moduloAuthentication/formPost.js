@@ -61,6 +61,7 @@ function submitForm(e){
     e.preventDefault();
     const contenidoPost=document.getElementById("publicacion").value;
     if (mode=== 'create') { 
+        console.log("usuario post", getUserId())
         savePost(contenidoPost, getUserId());
     }else{
         updatePost(idPost,{    

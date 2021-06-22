@@ -7,9 +7,8 @@ export const registerUser = (email ,password, Name) =>{
  };
  //login
  export const login =( email, password) =>{
-   return firebase
-   .auth()
-   .signInWithEmailAndPassword(email, password)
+  const promise = firebase.auth().signInWithEmailAndPassword(email, password);
+  return promise;
  };
 
  export  const loginGoogle= ()=>{

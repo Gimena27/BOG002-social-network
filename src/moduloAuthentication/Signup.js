@@ -1,4 +1,5 @@
 import { registerUser, loginGoogle } from '../lib/index.js';
+import {setUser} from './user.js';
 // import {settingsUsers} from '../moduloProfile/profile.js';
 
 export const succesRegister=() => {
@@ -91,10 +92,7 @@ export const registro = () => {
     registerUser(registrarEmail, registrarContraseña, registrarNombre)
       .then((userCredential) => {
          window.location.hash = "#/succesRegister";
-        return userCredential.user.updateProfile({
-          displayName: registrarNombre
-          
-        })
+         setUser(userCredential.user);
       })
       .catch((error) => {
         window.location.hash = "#/signUp";
@@ -134,6 +132,7 @@ export const registro = () => {
     event.preventDefault();
     loginGoogle()
       .then((result) => {
+        
         /** @type {firebase.auth.OAuthCredential} */
         var credential = result.credential;
 

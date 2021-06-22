@@ -14,7 +14,7 @@ export const router = (route) => {
   
     switch (route) {
         case '#/login':
-            console.log("user:",user);
+            // console.log("user:",user);
             content.appendChild(loginDiv());
         
             break;
