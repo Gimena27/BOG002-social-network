@@ -358,6 +358,8 @@ form p{
    .corazonRojo{
      background-color: tomato;
    } */
+ 
+
    @media screen and (min-width: 416px) {
     *{
         margin: 0;
