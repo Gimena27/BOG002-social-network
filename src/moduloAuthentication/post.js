@@ -1,4 +1,4 @@
-import { deletePost, savePost, updateLikes} from "./firebase.js";
+import { deletePost, savePost, updateDislike, updateLike} from "./firebase.js";
 import { formPost } from "./formPost.js";
 import { getUserId,setUser} from "./user.js";
 let likes=[];
@@ -14,7 +14,6 @@ export function post(showPost) {
     const iconoEdit=document.createElement("i");
     const btnLike=document.createElement("button");
     const iconoLike=document.createElement("i");
-
     descripcion.textContent= showPost.description;
 
     post.className="info-post";
@@ -31,6 +30,7 @@ export function post(showPost) {
         formPost().editMode(showPost.id, showPost.description);
         
     })
+   
     iconoLike.className="far fa-heart   btn-like";
     iconoLike.addEventListener("click",()=>{
         console.log("like");
@@ -39,19 +39,22 @@ export function post(showPost) {
         const likes = showPost.likes;
         const miLike = likes.find(item => item === user.uid);
         console.log("like",miLike)
-        if(miLike === user.uid){
-            likes.splice(user.uid, 1);
-            updateLikes(showPost.id, likes);
-        }else{
-            likes.push(user.uid)
-            updateLikes(showPost.id, likes);
-        }
+        if(miLike){
         
-          
-
+            updateDislike(showPost.id, user.uid);
+            iconoLike.style.background ="transparent";
+         
+        }else{
+            // debugger
+            updateLike(showPost.id, user.uid);
+            iconoDislike.style.background = "#D95F69";
+            
+        }
+       
+        
         
     });
-  
+    usuario.innerHTML = showPost.likes.length === 0 ? '' : showPost.likes.length;
 
     
     post.appendChild(descripcion);

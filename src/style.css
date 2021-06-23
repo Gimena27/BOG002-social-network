@@ -351,6 +351,13 @@ form p{
     margin-left: 1em;
 }
    */
+
+   /* .ocultar{
+    background-color: transparent;
+   }
+   .corazonRojo{
+     background-color: tomato;
+   } */
    @media screen and (min-width: 416px) {
     *{
         margin: 0;

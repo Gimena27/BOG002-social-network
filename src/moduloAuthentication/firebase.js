@@ -1,3 +1,4 @@
+
 var firebaseConfig = {
     apiKey: "AIzaSyCcwsf7v_1XVXk6XH8012kZm6sX1_bZ_UI",
     authDomain: "funnypets-socialnetwork.firebaseapp.com",
@@ -27,22 +28,24 @@ export const updatePost = (id, updatedPost) => {
     db.collection("publicaciones").doc(id).update(updatedPost)
     console.log(id,updatedPost);
 };
-export const updateLikes = (id, likes) => db.collection("publicaciones").doc(id).update({
-    likes,
-  });
+// export const updateLikes = (id, likes) => db.collection("publicaciones").doc(id).update({
+//     likes,
+//   });
   
-// export const updateLike = (id) => {
-//     db.collection("publicaciones").doc(id).update({
-//         likes: firebase.firestore.FieldValue.arrayUnion(userUidActual)
+export const updateLike = (idPost, uid) => {
+    console.log(idPost , uid)
+    db.collection("publicaciones").doc(idPost).update({
+        likes: firebase.firestore.FieldValue.arrayUnion(uid)
 
-//     })
-// }
-// export const updateDislike = (id) => {
-//     db.collection("publicaciones").doc(id).update({
-//         likes: firebase.firestore.FieldValue.arrayRemove(userUidActual)
+    })
+}
+export const updateDislike = (idPost, uid )=> {
+    console.log(idPost , uid)
+    db.collection("publicaciones").doc(idPost).update({
+        likes: firebase.firestore.FieldValue.arrayRemove(uid)
 
-//     })
-// }
+    })
+}
 export const savePost = (description, uid) => {
     db.collection("publicaciones").doc().set({
 

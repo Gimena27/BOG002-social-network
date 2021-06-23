@@ -26,44 +26,14 @@ export function showLogin() {
     const postContainer = select.querySelector("#containerPost");
     window.addEventListener('DOMContentLoaded', async (e) => {
         // crear lista de post
+
         onGetPost((querySnapshot) => {
-            //postContainer.innerHTML = "";
+            postContainer.innerHTML = "";
             querySnapshot.forEach(doc => {
-                // console.log(doc.data())
                 let showPost = doc.data();
                 showPost.id = doc.id;
-                // console.log(showPost); 
                 postContainer.appendChild(post(showPost));
             });
-            /*let showLikes = document.querySelectorAll(".btn-like");
-            console.log(showLikes);
-            showLikes.forEach(btn => {
-                if (showLikes.background = "transparent") {
-                    btn.addEventListener("click",(e)=>{
-                        showLikes.background="red";
-                        updateLike(e.target.dataset.id)
-                    });
-                } else if(showLikes.background="red") {
-                    btn.addEventListener("click",(e)=>{
-                        showLikes.background="transparent";
-                        updateDislike(e.target.dataset.id)
-                    })
-                }
-            });
-            let showLikes = document.querySelectorAll(".btn-like");
-            console.log(showLikes);
-            showLikes.forEach(btn => {
-                btn.addEventListener("click", async (e) => {
-                    if (btn.style.background = "transparent") {
-                        btn.style.background = "red";
-                        updateLike(e.target.dataset.id)
-                    } else if (btn.style.background = "red") {
-                        btn.style.background = "transparent";
-                        updateDislike(e.target.dataset.id)
-                    }
-                });
-
-            });*/
         });
     });
     return select;
