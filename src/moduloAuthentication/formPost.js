@@ -1,5 +1,5 @@
 import {updatePost, savePost} from "./firebase.js";
-import {getUserId} from './user.js';
+import {getUserId, getUser} from './user.js';
 let mode="create";
 let publicar;
 let idPost;
@@ -30,6 +30,7 @@ export function formPost(){
     `
     <img id="foto-usuario" src="IMG/GATO.jpg">
     <div class="insertar-publicacion">
+    <p id="emailUser" class="holaUsuario" ></p>
         <input type="POST" id= "publicacion" enctype="multipart/formdata" placeholder=" Realiza una publicación">
         <input type="file" name="imagen1" id ="imgPost"/>
         <div>
@@ -49,26 +50,27 @@ function editMode(id,description){
     idPost=id;
     document.getElementById("publicar-btn").innerText="Editar";
     document.getElementById("publicacion").value=description;
-    console.log("editando post",id,mode);
+   
 }
 function createMode(){
     mode = "create";
     document.getElementById("publicar-btn").innerText="Publicar";
     document.getElementById("publicacion").value="";
-    console.log("creando post");
+    // console.log("creando post");
 }
 function submitForm(e){
     e.preventDefault();
     const contenidoPost=document.getElementById("publicacion").value;
     if (mode=== 'create') { 
-        console.log("usuario post", getUserId())
-        savePost(contenidoPost, getUserId());
+        console.log("usuario post", getUser().email);
+        savePost(contenidoPost, getUserId(), getUser().email);
     }else{
         updatePost(idPost,{    
             description: contenidoPost,   
         })
     } 
     createMode();
+  
 }
 /*formPost.addEventListener("submit", async (e) => {
     e.preventDefault();

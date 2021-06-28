@@ -20,7 +20,7 @@ export const textPost = (id) => {
 export const onGetPost = (callback) => db.collection("publicaciones").onSnapshot(callback)
 
 export const deletePost = (id) => {
-    console.log(id);
+    // console.log(id);
     return db.collection("publicaciones").doc(id).delete()
 };
 
@@ -28,31 +28,28 @@ export const updatePost = (id, updatedPost) => {
     db.collection("publicaciones").doc(id).update(updatedPost)
     console.log(id,updatedPost);
 };
-// export const updateLikes = (id, likes) => db.collection("publicaciones").doc(id).update({
-//     likes,
-//   });
-  
+
 export const updateLike = (idPost, uid) => {
-    console.log(idPost , uid)
+    // console.log(idPost , uid)
     db.collection("publicaciones").doc(idPost).update({
         likes: firebase.firestore.FieldValue.arrayUnion(uid)
 
     })
 }
 export const updateDislike = (idPost, uid )=> {
-    console.log(idPost , uid)
+    // console.log(idPost , uid)
     db.collection("publicaciones").doc(idPost).update({
         likes: firebase.firestore.FieldValue.arrayRemove(uid)
 
     })
 }
-export const savePost = (description, uid) => {
+export const savePost = (description, uid, email)  => {
     db.collection("publicaciones").doc().set({
 
         description,
         likes: [],
         userUid: uid,
-        // email: user.email,
+        email:email,
         // name: user.displayName,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
 

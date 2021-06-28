@@ -14,6 +14,7 @@ function enablePublish(select) {
     })
 
 }
+
 export function showLogin() {
     let select = document.createElement("div");
     let containerPost = document.createElement("div");
@@ -24,18 +25,20 @@ export function showLogin() {
     select.appendChild(footer());
 
     const postContainer = select.querySelector("#containerPost");
-    window.addEventListener('DOMContentLoaded', async (e) => {
-        // crear lista de post
-
-        onGetPost((querySnapshot) => {
-            postContainer.innerHTML = "";
-            querySnapshot.forEach(doc => {
-                let showPost = doc.data();
-                showPost.id = doc.id;
-                postContainer.appendChild(post(showPost));
-            });
+    // crear lista de post
+  
+    onGetPost((querySnapshot) => {
+        postContainer.innerHTML = "";
+        querySnapshot.forEach(doc => {
+            let showPost = doc.data();
+            showPost.id = doc.id;
+            postContainer.appendChild(post(showPost));
         });
     });
+   
     return select;
 }
+
+
+ 
 

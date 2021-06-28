@@ -13,7 +13,6 @@ export const registerUser = (email ,password, Name) =>{
 
  export  const loginGoogle= ()=>{
   var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   return firebase.auth()
   .signInWithPopup(provider);
 
@@ -22,14 +21,9 @@ export function observador() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log("existe usuario activo");
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
       var uid = user.uid;
-      // ...
     } else {
       console.log("no existe usuario activo");
-      // User is signed out
-      // ...
     }
   });
 };
@@ -46,10 +40,6 @@ export function usuarioRegistrado(){
     return user;
 }
 
-export function salir(){
-  
-  firebase.auth().signOut()
-  
-}
+
 
 

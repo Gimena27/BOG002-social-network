@@ -41,9 +41,10 @@ export function header(){
     return header;
 }
 export function cerrarSesion() {
-
+    
     let btnCerrar = document.getElementById("salir");
     btnCerrar.addEventListener('click', () => {
+        firebase.auth().signOut()
         window.location.hash = "#/login"
     });
 }
