@@ -72,37 +72,3 @@ function submitForm(e){
     createMode();
   
 }
-/*formPost.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const description = area_post["publicacion"];
-    
-    // console.log("enviando", description);
-    // await savePost(description.value);
-
-    if (!editStatus) {
-        await savePost(description.value)
-
-    }
-    else {
-        await updatePost(id, {
-            description: description.value,
-            timestamp
-
-        });
-        editStatus = false;
-        id = "";
-
-        formPost["publicar-btn"].innerText = "Publicar"
-    }
-
-
-
-
-
-    await getPost()
-    formPost.reset();
-    description.focus();
-
-
-
-})*/
